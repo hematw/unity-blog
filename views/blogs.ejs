@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %> 
+
+<body>
+    
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="content">
+
+        <!-- <% let name = "Hemat Waziri" %>
+        <i><%= name %></i> -->
+
+        <h1>All Blogs</h1>
+        
+        <% if(blogs.length != 0) { 
+            blogs.map(blog => { %>
+        <div class="blog">
+            <h3><%= blog.title %> | <span class="author"><%= blog.author %> </span></h3>
+            <p>
+                <%= blog.body.slice(0, 45) %>,
+                <a href="/blogs/<%= blog._id %>">See more...</a>
+            </p>
+        </div>
+        <% })
+        } else { %>
+            <p>There is no blog to Preview</p>
+        <% } %>
+    </div>
+    
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>

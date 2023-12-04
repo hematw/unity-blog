@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %> 
+
+<body>
+    
+    <%- include('./partials/nav.ejs') %>
+    
+    <div class="content blogs">
+        <!-- The value of action attribute here should be same as 
+            the route of specified post method  -->
+        <form action="/blogs/create" method="post">
+            <h2>Create Blog</h2>
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title" required>
+            <label for="author">Author: </label>
+            <input type="text" id="author" name="author" required>
+            <label for="body">Blog body: </label>
+            <textarea id="body" name="body"></textarea required>
+            <input id="btn" type="submit" >
+        </form>
+    </div>
+    
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body>
+
+        <%- include('./partials/nav.ejs') %>
+
+            <div class="content">
+
+                <!-- <% let name = "Hemat Waziri" %>
+        <i><%= name %></i> -->
+
+                <h1>Blog Details</h1>
+
+                <% if(blog) { %>
+                    <div class="blog">
+                        <h3>
+                            <%= blog.title %> | <span class="author">
+                                    <%= blog.author %>
+                                </span>
+                        </h3>
+                        <p>
+                            <%= blog.body %>
+                        </p>
+                        <a href="/blogs/<%= blog._id %>" id="delete-btn">Delete</a>
+                    </div>
+                    <% } %>
+            </div>
+
+            <%- include('./partials/footer.ejs') %>
+
+                <script>
+                    const delBtn = document.querySelector('#delete-btn');
+                    
+                    delBtn.addEventListener('click', () => {
+                        const url = delBtn.href
+                        fetch(url, { method: "delete" })
+                            .then(res => res.json())
+                            .then(data => window.location.href = data.redirect)
+                            .catch(err => console.log(err))
+                    })
+                </script>
+    </body>
+
+</html>
